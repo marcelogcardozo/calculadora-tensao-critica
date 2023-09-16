@@ -2,7 +2,6 @@ from src.calculadora import calcula_tensao_critica, calcular_abaco, calcular_v_m
 from src.utils import get_about, get_footer, set_chart, set_table
 import streamlit as st
 
-
 st.set_page_config(
     page_title="Calculadora",
     page_icon=":coffee:",
@@ -16,6 +15,8 @@ st.set_page_config(
 st.markdown(get_footer(), unsafe_allow_html=True)
 
 st.title('Calculadora - Tensão Crítica')
+st.subheader('Resultados')
+st.divider()
 
 # Parâmetros de entrada
 st.sidebar.title('Parâmetros de Entrada')

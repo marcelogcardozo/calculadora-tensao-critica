@@ -18,6 +18,7 @@ def get_about():
     GitHub: https://github.com/marcelogcardozo  
     LinkedIn: https://www.linkedin.com/in/marcelogcardozo/  
 
+    Versão: 0.1.0
     """
     return about
 
