@@ -10,20 +10,7 @@ def get_footer():
     """
     return style
 
-def get_about():
-
-    about = """
-
-    Feito por: Marcelo Cardozo  
-    GitHub: https://github.com/marcelogcardozo  
-    LinkedIn: https://www.linkedin.com/in/marcelogcardozo/  
-
-    Versão: 0.1.0
-    """
-    return about
-
-
-def set_chart(col_widget, abaco: dict) -> None:
+def set_chart(col_widget, ecr2_base: float, abaco: dict, gerar_abaco_completo: bool) -> None:
     
     fig = go.Figure()
         
@@ -32,7 +19,8 @@ def set_chart(col_widget, abaco: dict) -> None:
         xs = [p.ler for p in pontos]
         ys = [p.pa for p in pontos]
 
-        line_trace = go.Line(x=xs, y=ys, name=f"{ecr2:.2f}")
+        dash = 'dash' if (ecr2 == ecr2_base and gerar_abaco_completo) else None
+        line_trace = go.Line(x=xs, y=ys, name=f"{ecr2:.2f}", line=dict(dash=dash))
 
         fig.add_trace(line_trace)
 
@@ -41,8 +29,8 @@ def set_chart(col_widget, abaco: dict) -> None:
         xaxis_title="Le/r",
         yaxis_title="P/A",
         legend_title="Ecr2",
-        yaxis_range=[0, 300],
-        xaxis_range=[0, 200],
+        yaxis_range=[0, 300.1],
+        xaxis_range=[0, 200.1],
     )
 
     col_widget.plotly_chart(fig, use_container_width=True)
@@ -51,8 +39,8 @@ def set_chart(col_widget, abaco: dict) -> None:
 def set_table(col_widget, ecr2, abaco) -> None:
 
     data_for_dataframe = {
-        'Le/r': [p.ler for p in abaco[ecr2]],
-        'P/A': [p.pa for p in abaco[ecr2]],
+        'Le/r': [round(p.ler, 2) for p in abaco[ecr2]],
+        'P/A': [round(p.pa, 2) for p in abaco[ecr2]],
     }
 
     col_widget.dataframe(data_for_dataframe)
