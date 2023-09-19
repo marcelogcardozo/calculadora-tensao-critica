@@ -41,18 +41,18 @@ st.divider()
 st.sidebar.title('Parâmetros de Entrada')
 
 st.sidebar.subheader('Dados do Material')
-E = st.sidebar.number_input('Módulo de Elasticidade (GPa)', 0.1, 10000.0, 0.0) * 1000
-T_esc = st.sidebar.number_input('Tensão de Escoamento (MPa)', 0.1, 10000.0, 0.0)
+E = st.sidebar.number_input('Módulo de Elasticidade (GPa)', 0.1, None, 200.0) * 1000
+T_esc = st.sidebar.number_input('Tensão de Escoamento (MPa)', 0.1, None, 250.0)
 
 st.sidebar.subheader('Dados da Seção Transversal')
-A = st.sidebar.number_input('Área (mm²)', 0.1, None, 0.0)
+A = st.sidebar.number_input('Área (mm²)', 0.0, None, 0.0)
 I = st.sidebar.number_input('Inércia (mm⁴)', 0.0, None, 0.0)
 r = st.sidebar.number_input('Raio de Giração (mm)', 0.0, None, 0.0)
 c = st.sidebar.number_input('Distância da Linha Neutra (mm)', 0.0, None, 0.0)
 
 st.sidebar.subheader('Dados do caso')
 P = st.sidebar.number_input('Carga aplicada (kN)', 0.0, None, 0.0)
-Le = st.sidebar.number_input('Comprimento efetivo do elemento (mm)', 0.1, None, 0.0)
+Le = st.sidebar.number_input('Comprimento efetivo do elemento (mm)', 0.1, None, 1000.0)
 e = st.sidebar.number_input('Excentricidade (mm)', 0.0, None, 0.0)
 FS = st.sidebar.number_input('Fator de Segurança', 0.0, None, 0.0)
 
