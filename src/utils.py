@@ -32,8 +32,8 @@ def set_basic_info(st) -> None:
 
     st.title('Calculadora - Tensão Crítica')
     st.markdown("""
-    Feito por: Marcelo Cardozo  &bull; [![GitHub]('./static/github.webp')](https://github.com/marcelogcardozo)
-                                &bull; [![LinkedIn](https://scontent.fsdu38-1.fna.fbcdn.net/v/t39.30808-6/267422938_4880673518668256_5792791296770782057_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=IP8ejZg4NMsAX9LvNVR&_nc_ht=scontent.fsdu38-1.fna&cb_e2o_trans=t&oh=00_AfASEsqaX1qvw5QROrYieQ62HQoRBwUH-faVyoCyFXiF1A&oe=653D3C69)](https://www.linkedin.com/in/marcelogcardozo/)
+    Feito por: Marcelo Cardozo  &bull; [GitHub](https://github.com/marcelogcardozo)
+                                &bull; [LinkedIn](https://www.linkedin.com/in/marcelogcardozo/)
 
     Versão: 1.0
     """)
