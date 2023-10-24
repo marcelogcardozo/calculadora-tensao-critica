@@ -43,5 +43,5 @@ if st.sidebar.button('Calcular'):
 
         abaco = calcular_abaco(T_esc, ecr2, E, gerar_abaco_completo, de, ate, razao)
 
-        set_resultados(st, pcr, P, tensao_normal_critica, tensao_normal_aplicada, v_max, FS, e, ecr2, abaco, gerar_abaco_completo)
+        set_resultados(st, pcr, P, tensao_normal_critica, tensao_normal_aplicada, v_max, FS, e, ecr2, Ler, abaco, gerar_abaco_completo)
 

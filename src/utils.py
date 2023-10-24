@@ -31,11 +31,9 @@ def reset_config(st) -> None:
 def set_basic_info(st) -> None:
 
     st.title('Calculadora - Tensão Crítica')
-
     st.markdown("""
-
-    Feito por: Marcelo Cardozo  &bull; [![GitHub](https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png)](https://github.com/marcelogcardozo)
-                                &bull; [![LinkedIn](https://scontent.fsdu25-1.fna.fbcdn.net/v/t39.30808-1/267422938_4880673518668256_5792791296770782057_n.png?stp=dst-png_p200x200&_nc_cat=108&ccb=1-7&_nc_sid=754033&_nc_ohc=FzJ49MszpDkAX_b3T44&_nc_ht=scontent.fsdu25-1.fna&cb_e2o_trans=t&oh=00_AfC1YK5ssU0tc3BQcFnYLlPAJFN8jotV5pf9JJc-ANb7pQ&oe=650DDC2B)](https://www.linkedin.com/in/marcelogcardozo/)
+    Feito por: Marcelo Cardozo  &bull; [![GitHub]('./static/github.webp')](https://github.com/marcelogcardozo)
+                                &bull; [![LinkedIn](https://scontent.fsdu38-1.fna.fbcdn.net/v/t39.30808-6/267422938_4880673518668256_5792791296770782057_n.png?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=IP8ejZg4NMsAX9LvNVR&_nc_ht=scontent.fsdu38-1.fna&cb_e2o_trans=t&oh=00_AfASEsqaX1qvw5QROrYieQ62HQoRBwUH-faVyoCyFXiF1A&oe=653D3C69)](https://www.linkedin.com/in/marcelogcardozo/)
 
     Versão: 1.0
     """)
@@ -147,7 +145,7 @@ def set_sidebar_and_get_params(st) -> tuple:
 
     return E, T_esc, A, I, r, c, P, FS, Le, k, e, abaco_completo, de, ate, razao
 
-def set_resultados(st, pcr, P, tensao_normal_critica, tensao_normal_aplicada, v_max, FS, e, ecr2, abaco, gerar_abaco_completo) -> None:
+def set_resultados(st, pcr, P, tensao_normal_critica, tensao_normal_aplicada, v_max, FS, e, ecr2, Ler, abaco, gerar_abaco_completo) -> None:
 
     def set_chart(col_widget, ecr2_base: float, abaco: dict, gerar_abaco_completo: bool) -> None:
         
@@ -186,15 +184,19 @@ def set_resultados(st, pcr, P, tensao_normal_critica, tensao_normal_aplicada, v_
     col1, col2, col3 = st.columns(3)
     col4, col5 = st.columns([0.85, 0.15])
 
-    col1.latex('P_{cr} = '+f'{pcr:.2f} kN')
-    col1.latex(f'P = {P:.2f} kN')
+    col1.latex('P_{cr} = ' + f'{pcr:.2f} kN')
+    col1.latex('P_{apl} = '+ f'{P:.2f} kN')
+    col1.latex('ec/r^2 = '+f'{ecr2:.2f}')
 
-    col2.latex('\sigma_{cr} = '+f'{tensao_normal_critica:.2f} MPa')
-    col2.latex(f'\sigma = {tensao_normal_aplicada:.2f} MPa')
-    col2.latex('V_{max} = '+f'{v_max:.2f} mm')
+    col2.latex('\sigma_{cr} = '  + f'{tensao_normal_critica:.2f} MPa')
+    col2.latex('\sigma_{apl} = ' + f'{tensao_normal_aplicada:.2f} MPa')
+    col2.latex(f'Le/r = {Ler:.2f}')
 
     col3.latex(f'FS = {FS:.2f}')
+    col3.latex('V_{max} = '+ f'{v_max:.2f} mm')
     col3.latex(f'Método: {"Euler" if e == 0 else "Secante"}')
+
+    
 
     set_chart(col4, ecr2, abaco, gerar_abaco_completo)
     set_table(col5, ecr2, abaco)
